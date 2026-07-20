@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExamFolderRepository extends JpaRepository<ExamFolder, String> {
+
+    boolean existsByExam_IdAndFolder_Id(String examId, String folderId);
+
+    boolean existsByExam_IdAndFolder_IdAndIdNot(String examId, String folderId, String id);
 }
