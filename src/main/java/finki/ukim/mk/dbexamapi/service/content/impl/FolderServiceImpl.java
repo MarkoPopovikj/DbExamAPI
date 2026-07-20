@@ -2,7 +2,7 @@ package finki.ukim.mk.dbexamapi.service.content.impl;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.content.FolderDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.content.FolderDoesNotExistException;
-import finki.ukim.mk.dbexamapi.domain.models.Folder;
+import finki.ukim.mk.dbexamapi.domain.models.content.Folder;
 import finki.ukim.mk.dbexamapi.repository.FolderRepository;
 import finki.ukim.mk.dbexamapi.service.content.FolderService;
 import lombok.extern.slf4j.Slf4j;

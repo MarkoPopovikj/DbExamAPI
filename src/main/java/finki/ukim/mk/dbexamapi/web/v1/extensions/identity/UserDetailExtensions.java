@@ -1,8 +1,8 @@
 package finki.ukim.mk.dbexamapi.web.v1.extensions.identity;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.identity.UserDetailDto;
-import finki.ukim.mk.dbexamapi.domain.models.User;
-import finki.ukim.mk.dbexamapi.domain.models.UserDetail;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
+import finki.ukim.mk.dbexamapi.domain.models.identity.UserDetail;
 import finki.ukim.mk.dbexamapi.web.v1.requests.identity.UserDetailRequest;
 import finki.ukim.mk.dbexamapi.web.v1.responses.identity.UserDetailResponse;
 

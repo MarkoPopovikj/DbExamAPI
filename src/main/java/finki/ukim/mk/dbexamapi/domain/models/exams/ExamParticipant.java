@@ -1,4 +1,6 @@
-package finki.ukim.mk.dbexamapi.domain.models;
+package finki.ukim.mk.dbexamapi.domain.models.exams;
+
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 
 import finki.ukim.mk.dbexamapi.domain.models.common.BaseEntity;
 import jakarta.persistence.*;

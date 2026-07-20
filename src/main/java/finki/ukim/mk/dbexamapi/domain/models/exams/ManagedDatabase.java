@@ -1,4 +1,4 @@
-package finki.ukim.mk.dbexamapi.domain.models;
+package finki.ukim.mk.dbexamapi.domain.models.exams;
 
 import finki.ukim.mk.dbexamapi.domain.enums.ManagedDatabaseStatus;
 import finki.ukim.mk.dbexamapi.domain.models.common.BaseAuditableEntity;

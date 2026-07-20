@@ -1,7 +1,7 @@
 package finki.ukim.mk.dbexamapi.service.content;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.content.ExamFolderDto;
-import finki.ukim.mk.dbexamapi.domain.models.ExamFolder;
+import finki.ukim.mk.dbexamapi.domain.models.content.ExamFolder;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package finki.ukim.mk.dbexamapi.domain.dtos.exams;
 
-import finki.ukim.mk.dbexamapi.domain.models.Course;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Course;
 
 import java.time.Instant;
 

@@ -3,7 +3,7 @@ package finki.ukim.mk.dbexamapi.service.exams.impl;
 import finki.ukim.mk.dbexamapi.domain.dtos.exams.CourseDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.CourseCodeAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.CourseDoesNotExistException;
-import finki.ukim.mk.dbexamapi.domain.models.Course;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Course;
 import finki.ukim.mk.dbexamapi.repository.CourseRepository;
 import finki.ukim.mk.dbexamapi.service.exams.CourseService;
 import lombok.extern.slf4j.Slf4j;

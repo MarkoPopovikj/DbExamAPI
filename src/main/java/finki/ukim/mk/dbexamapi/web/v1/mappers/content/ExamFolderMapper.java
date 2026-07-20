@@ -1,7 +1,7 @@
 package finki.ukim.mk.dbexamapi.web.v1.mappers.content;
 
-import finki.ukim.mk.dbexamapi.domain.models.Exam;
-import finki.ukim.mk.dbexamapi.domain.models.Folder;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Exam;
+import finki.ukim.mk.dbexamapi.domain.models.content.Folder;
 import finki.ukim.mk.dbexamapi.service.content.ExamFolderService;
 import finki.ukim.mk.dbexamapi.service.content.FolderService;
 import finki.ukim.mk.dbexamapi.service.exams.ExamService;

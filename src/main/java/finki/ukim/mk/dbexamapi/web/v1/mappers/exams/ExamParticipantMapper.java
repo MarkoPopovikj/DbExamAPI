@@ -1,7 +1,7 @@
 package finki.ukim.mk.dbexamapi.web.v1.mappers.exams;
 
-import finki.ukim.mk.dbexamapi.domain.models.Exam;
-import finki.ukim.mk.dbexamapi.domain.models.User;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Exam;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 import finki.ukim.mk.dbexamapi.service.exams.ExamParticipantService;
 import finki.ukim.mk.dbexamapi.service.exams.ExamService;
 import finki.ukim.mk.dbexamapi.service.identity.UserService;

@@ -1,8 +1,8 @@
 package finki.ukim.mk.dbexamapi.web.v1.extensions.content;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.content.DocumentDto;
-import finki.ukim.mk.dbexamapi.domain.models.Document;
-import finki.ukim.mk.dbexamapi.domain.models.Folder;
+import finki.ukim.mk.dbexamapi.domain.models.content.Document;
+import finki.ukim.mk.dbexamapi.domain.models.content.Folder;
 import finki.ukim.mk.dbexamapi.web.v1.requests.content.DocumentRequest;
 import finki.ukim.mk.dbexamapi.web.v1.responses.content.DocumentResponse;
 

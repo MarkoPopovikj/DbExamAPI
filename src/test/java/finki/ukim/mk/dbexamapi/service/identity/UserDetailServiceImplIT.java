@@ -7,8 +7,8 @@ import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailAlreadyExist
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailEmailAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailIndexAlreadyExistsException;
-import finki.ukim.mk.dbexamapi.domain.models.User;
-import finki.ukim.mk.dbexamapi.domain.models.UserDetail;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
+import finki.ukim.mk.dbexamapi.domain.models.identity.UserDetail;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

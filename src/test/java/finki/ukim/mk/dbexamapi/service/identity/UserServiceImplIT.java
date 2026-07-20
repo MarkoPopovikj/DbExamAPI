@@ -3,7 +3,7 @@ package finki.ukim.mk.dbexamapi.service.identity;
 import finki.ukim.mk.dbexamapi.domain.dtos.identity.UserDto;
 import finki.ukim.mk.dbexamapi.domain.enums.UserRole;
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDoesNotExistException;
-import finki.ukim.mk.dbexamapi.domain.models.User;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
