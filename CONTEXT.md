@@ -1,0 +1,122 @@
+# DbExam
+
+A platform where students take database-course exams: they work out SQL tasks
+against real PostgreSQL databases that the system provisions, resets, and
+grades.
+
+## Language
+
+### People & access
+
+**User**:
+Anyone who can sign in. Has exactly one global role: admin or student.
+_Avoid_: account, principal
+
+**Student**:
+A user whose role is STUDENT; takes exams.
+_Avoid_: pupil, candidate
+
+**Admin**:
+A user whose role is ADMIN. Global role only grants sign-in; actual power is
+scoped per exam through participation.
+_Avoid_: professor, TA, staff (roles that no longer exist as concepts)
+
+**Exam Participant**:
+The enrollment of one user in one exam — either as a taker or, when flagged
+admin, as that exam's administrator. The anchor for everything per-student in
+an exam: held databases, progress, submissions, personal timing.
+_Avoid_: enrollment, registration, attendee
+
+### Exam structure
+
+**Course**:
+A stable catalog entry (code + name) that exams belong to. Not re-created per
+semester — the exam's own dates carry time.
+_Avoid_: subject, class
+
+**Exam**:
+A scheduled event of a course: a time window with enrolled participants. An
+exam has no type — its character is entirely composed from its tasks and
+environments.
+_Avoid_: exam type (the concept was deliberately eliminated), session, term
+
+**Task**:
+A single executable work item in an exam: text the student reads plus the kind
+of SQL they must produce, worth points. Tasks form a flat ordered list — there
+are no subtasks.
+_Avoid_: subtask, question, problem, exercise
+
+**Check**:
+One criterion by which a task is judged (result match, schema match, state
+match, performance), worth part of the task's points. A task can have several;
+partial credit is their sum.
+_Avoid_: test case, assertion, grader rule
+
+### Environments & databases
+
+**Environment**:
+A declarative database setup within one exam — shared or per-student, starting
+state, reset behavior. Tasks point at an environment; tasks sharing one work
+in the same database, which is how later tasks continue on earlier tasks'
+state.
+_Avoid_: scenario, workspace, task config
+
+**Database Template**:
+A reusable, rebuildable starting state (schema + data) for databases, global
+across exams.
+_Avoid_: mockup, dump, seed database
+
+**Managed Database**:
+One physical PostgreSQL database the system created, tracked for its whole
+life as a self-contained connection descriptor (name, credentials, state,
+holder). Never reused, never forgotten — discarded ones remain as history.
+_Avoid_: instance, workspace, sandbox
+
+**Pool**:
+The stock of ready, unassigned managed databases kept pre-created for an
+environment so a fresh one can be handed out instantly.
+_Avoid_: cache, buffer
+
+**Claim**:
+The atomic act of assigning an available pooled database to a participant.
+_Avoid_: allocate, checkout
+
+**Swap**:
+Discarding a participant's ruined database and claiming a fresh one, while the
+pool replenishes in the background.
+_Avoid_: reset (that's the environment policy family), reprovision
+
+**Auto-populate**:
+The engine filling a student-built schema with data after their DDL is
+accepted, so query tasks have something to return.
+_Avoid_: seeding, data generation (as a concept name)
+
+### Record & judging
+
+**Submission**:
+One answer a participant produced for a task, with the exact SQL and which
+database it ran against. Append-only and sacred: databases are disposable,
+submissions are the source of truth — never updated, never deleted.
+_Avoid_: attempt, answer, entry
+
+**Pulled submission**:
+A submission the engine extracted from the student's database itself (schema,
+procedure source) rather than received as typed text — what makes working in
+external SQL tools equivalent to the UI.
+_Avoid_: captured, sniffed
+
+**Student Task**:
+The per-participant state of one task: progress status, which submission
+counts as the final answer, and the earned score.
+_Avoid_: assignment, task instance
+
+**Check Result**:
+The recorded evidence of running one check against one submission: passed or
+not, points awarded, and what the grader saw. The ground truth behind every
+score and the answer to every grading dispute.
+_Avoid_: grade, verdict
+
+**Document**:
+A markdown material (task sheets, instructions, diagrams) grouped in folders
+that attach to exams and tasks.
+_Avoid_: file, attachment
