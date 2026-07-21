@@ -61,7 +61,13 @@ public class TaskServiceImpl implements TaskService {
 
         Task task = new Task();
         task.setExam(taskDto.environment().getExam());
-        applyFields(task, taskDto);
+        task.setEnvironment(taskDto.environment());
+        task.setPosition(taskDto.position());
+        task.setTitle(taskDto.title());
+        task.setDescription(taskDto.description());
+        task.setTaskType(taskDto.taskType());
+        task.setSubmissionMode(taskDto.submissionMode());
+        task.setPoints(taskDto.points());
 
         Task saved = taskRepository.save(task);
         log.info("Created task with id: {}", saved.getId());
@@ -83,7 +89,13 @@ public class TaskServiceImpl implements TaskService {
             throw new TaskPositionAlreadyExistsException(task.getExam().getId(), taskDto.position());
         }
 
-        applyFields(task, taskDto);
+        task.setEnvironment(taskDto.environment());
+        task.setPosition(taskDto.position());
+        task.setTitle(taskDto.title());
+        task.setDescription(taskDto.description());
+        task.setTaskType(taskDto.taskType());
+        task.setSubmissionMode(taskDto.submissionMode());
+        task.setPoints(taskDto.points());
 
         Task saved = taskRepository.save(task);
         log.info("Updated task with id: {}", saved.getId());
@@ -98,16 +110,6 @@ public class TaskServiceImpl implements TaskService {
         taskRepository.delete(task);
         log.info("Deleted task with id: {} and its folder attachments", id);
         return task;
-    }
-
-    private void applyFields(Task task, TaskDto taskDto) {
-        task.setEnvironment(taskDto.environment());
-        task.setPosition(taskDto.position());
-        task.setTitle(taskDto.title());
-        task.setDescription(taskDto.description());
-        task.setTaskType(taskDto.taskType());
-        task.setSubmissionMode(taskDto.submissionMode());
-        task.setPoints(taskDto.points());
     }
 
     private void validateEnvironmentActive(TaskDto taskDto) {

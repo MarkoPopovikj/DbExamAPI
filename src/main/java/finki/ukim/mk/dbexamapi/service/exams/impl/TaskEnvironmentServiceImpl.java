@@ -56,7 +56,13 @@ public class TaskEnvironmentServiceImpl implements TaskEnvironmentService {
 
         TaskEnvironment taskEnvironment = new TaskEnvironment();
         taskEnvironment.setExam(taskEnvironmentDto.exam());
-        applyFields(taskEnvironment, taskEnvironmentDto);
+        taskEnvironment.setName(taskEnvironmentDto.name());
+        taskEnvironment.setDescription(taskEnvironmentDto.description());
+        taskEnvironment.setMode(taskEnvironmentDto.mode());
+        taskEnvironment.setTemplate(taskEnvironmentDto.template());
+        taskEnvironment.setResetPolicy(taskEnvironmentDto.resetPolicy());
+        taskEnvironment.setPoolSize(taskEnvironmentDto.poolSize());
+        taskEnvironment.setAutoPopulateScript(taskEnvironmentDto.autoPopulateScript());
         taskEnvironment.setActive(true);
 
         TaskEnvironment saved = taskEnvironmentRepository.save(taskEnvironment);
@@ -74,7 +80,13 @@ public class TaskEnvironmentServiceImpl implements TaskEnvironmentService {
         }
         validateRules(taskEnvironmentDto);
 
-        applyFields(taskEnvironment, taskEnvironmentDto);
+        taskEnvironment.setName(taskEnvironmentDto.name());
+        taskEnvironment.setDescription(taskEnvironmentDto.description());
+        taskEnvironment.setMode(taskEnvironmentDto.mode());
+        taskEnvironment.setTemplate(taskEnvironmentDto.template());
+        taskEnvironment.setResetPolicy(taskEnvironmentDto.resetPolicy());
+        taskEnvironment.setPoolSize(taskEnvironmentDto.poolSize());
+        taskEnvironment.setAutoPopulateScript(taskEnvironmentDto.autoPopulateScript());
 
         TaskEnvironment saved = taskEnvironmentRepository.save(taskEnvironment);
         log.info("Updated task environment with id: {}", saved.getId());
@@ -104,16 +116,6 @@ public class TaskEnvironmentServiceImpl implements TaskEnvironmentService {
         TaskEnvironment saved = taskEnvironmentRepository.save(taskEnvironment);
         log.info("Reactivated task environment with id: {}", id);
         return saved;
-    }
-
-    private void applyFields(TaskEnvironment taskEnvironment, TaskEnvironmentDto taskEnvironmentDto) {
-        taskEnvironment.setName(taskEnvironmentDto.name());
-        taskEnvironment.setDescription(taskEnvironmentDto.description());
-        taskEnvironment.setMode(taskEnvironmentDto.mode());
-        taskEnvironment.setTemplate(taskEnvironmentDto.template());
-        taskEnvironment.setResetPolicy(taskEnvironmentDto.resetPolicy());
-        taskEnvironment.setPoolSize(taskEnvironmentDto.poolSize());
-        taskEnvironment.setAutoPopulateScript(taskEnvironmentDto.autoPopulateScript());
     }
 
     private void validateRules(TaskEnvironmentDto taskEnvironmentDto) {
