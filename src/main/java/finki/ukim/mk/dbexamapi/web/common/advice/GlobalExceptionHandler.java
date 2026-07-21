@@ -1,6 +1,7 @@
 package finki.ukim.mk.dbexamapi.web.common.advice;
 
 import finki.ukim.mk.dbexamapi.domain.exceptions.AlreadyExistsException;
+import finki.ukim.mk.dbexamapi.domain.exceptions.InUseException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.NotFoundException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.RuleViolationException;
 import finki.ukim.mk.dbexamapi.web.v1.responses.ErrorResponse;
@@ -27,6 +28,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleAlreadyExists(AlreadyExistsException exception, HttpServletRequest request) {
+        return buildResponse(HttpStatus.CONFLICT, exception.getMessage(), request);
+    }
+
+    @ExceptionHandler(InUseException.class)
+    public ResponseEntity<ErrorResponse> handleInUse(InUseException exception, HttpServletRequest request) {
         return buildResponse(HttpStatus.CONFLICT, exception.getMessage(), request);
     }
 

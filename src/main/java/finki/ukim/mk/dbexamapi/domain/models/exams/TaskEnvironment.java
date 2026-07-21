@@ -60,4 +60,10 @@ public class TaskEnvironment extends BaseAuditableEntity {
      */
     @Column(name = "auto_populate_script", columnDefinition = "TEXT")
     private String autoPopulateScript;
+
+    /**
+     * Environments retire instead of delete (ADR 0001): false = retired.
+     */
+    @Column(name = "active", nullable = false)
+    private boolean active;
 }
