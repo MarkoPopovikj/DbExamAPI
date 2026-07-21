@@ -2,7 +2,7 @@ package finki.ukim.mk.dbexamapi.service.identity.impl;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.identity.UserDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDoesNotExistException;
-import finki.ukim.mk.dbexamapi.domain.models.User;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 import finki.ukim.mk.dbexamapi.repository.UserRepository;
 import finki.ukim.mk.dbexamapi.service.identity.UserService;
 import lombok.extern.slf4j.Slf4j;

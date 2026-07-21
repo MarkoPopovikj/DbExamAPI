@@ -1,4 +1,4 @@
-package finki.ukim.mk.dbexamapi.domain.models;
+package finki.ukim.mk.dbexamapi.domain.models.content;
 
 import finki.ukim.mk.dbexamapi.domain.models.common.BaseAuditableEntity;
 import jakarta.persistence.*;

@@ -1,6 +1,6 @@
 package finki.ukim.mk.dbexamapi.web.v1.mappers.identity;
 
-import finki.ukim.mk.dbexamapi.domain.models.User;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 import finki.ukim.mk.dbexamapi.service.identity.UserDetailService;
 import finki.ukim.mk.dbexamapi.service.identity.UserService;
 import finki.ukim.mk.dbexamapi.web.v1.extensions.identity.UserDetailExtensions;

@@ -3,7 +3,7 @@ package finki.ukim.mk.dbexamapi.service.exams;
 import finki.ukim.mk.dbexamapi.domain.dtos.exams.CourseDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.CourseCodeAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.CourseDoesNotExistException;
-import finki.ukim.mk.dbexamapi.domain.models.Course;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Course;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

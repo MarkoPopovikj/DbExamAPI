@@ -5,7 +5,7 @@ import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailAlreadyExist
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailEmailAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.identity.UserDetailIndexAlreadyExistsException;
-import finki.ukim.mk.dbexamapi.domain.models.UserDetail;
+import finki.ukim.mk.dbexamapi.domain.models.identity.UserDetail;
 import finki.ukim.mk.dbexamapi.repository.UserDetailRepository;
 import finki.ukim.mk.dbexamapi.service.identity.UserDetailService;
 import lombok.extern.slf4j.Slf4j;

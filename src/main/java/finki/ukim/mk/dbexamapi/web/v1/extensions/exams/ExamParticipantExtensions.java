@@ -1,9 +1,9 @@
 package finki.ukim.mk.dbexamapi.web.v1.extensions.exams;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.exams.ExamParticipantDto;
-import finki.ukim.mk.dbexamapi.domain.models.Exam;
-import finki.ukim.mk.dbexamapi.domain.models.ExamParticipant;
-import finki.ukim.mk.dbexamapi.domain.models.User;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Exam;
+import finki.ukim.mk.dbexamapi.domain.models.exams.ExamParticipant;
+import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 import finki.ukim.mk.dbexamapi.web.v1.requests.exams.ExamParticipantRequest;
 import finki.ukim.mk.dbexamapi.web.v1.responses.exams.ExamParticipantResponse;
 

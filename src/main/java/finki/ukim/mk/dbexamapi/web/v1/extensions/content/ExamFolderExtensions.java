@@ -1,9 +1,9 @@
 package finki.ukim.mk.dbexamapi.web.v1.extensions.content;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.content.ExamFolderDto;
-import finki.ukim.mk.dbexamapi.domain.models.Exam;
-import finki.ukim.mk.dbexamapi.domain.models.ExamFolder;
-import finki.ukim.mk.dbexamapi.domain.models.Folder;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Exam;
+import finki.ukim.mk.dbexamapi.domain.models.content.ExamFolder;
+import finki.ukim.mk.dbexamapi.domain.models.content.Folder;
 import finki.ukim.mk.dbexamapi.web.v1.requests.content.ExamFolderRequest;
 import finki.ukim.mk.dbexamapi.web.v1.responses.content.ExamFolderResponse;
 

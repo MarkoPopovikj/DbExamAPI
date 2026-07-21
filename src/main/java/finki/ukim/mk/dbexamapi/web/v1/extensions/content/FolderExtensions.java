@@ -1,7 +1,7 @@
 package finki.ukim.mk.dbexamapi.web.v1.extensions.content;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.content.FolderDto;
-import finki.ukim.mk.dbexamapi.domain.models.Folder;
+import finki.ukim.mk.dbexamapi.domain.models.content.Folder;
 import finki.ukim.mk.dbexamapi.web.v1.requests.content.FolderRequest;
 import finki.ukim.mk.dbexamapi.web.v1.responses.content.FolderResponse;
 

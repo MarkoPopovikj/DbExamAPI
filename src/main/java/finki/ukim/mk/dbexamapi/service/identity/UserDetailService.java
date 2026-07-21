@@ -1,7 +1,7 @@
 package finki.ukim.mk.dbexamapi.service.identity;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.identity.UserDetailDto;
-import finki.ukim.mk.dbexamapi.domain.models.UserDetail;
+import finki.ukim.mk.dbexamapi.domain.models.identity.UserDetail;
 
 import java.util.List;
 import java.util.Optional;

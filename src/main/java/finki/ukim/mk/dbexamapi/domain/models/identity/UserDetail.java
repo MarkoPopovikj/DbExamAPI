@@ -1,4 +1,4 @@
-package finki.ukim.mk.dbexamapi.domain.models;
+package finki.ukim.mk.dbexamapi.domain.models.identity;
 
 import finki.ukim.mk.dbexamapi.domain.models.common.BaseAuditableEntity;
 import finki.ukim.mk.dbexamapi.domain.models.common.BaseEntity;

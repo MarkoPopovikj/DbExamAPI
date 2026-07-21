@@ -1,8 +1,8 @@
 package finki.ukim.mk.dbexamapi.web.v1.extensions.exams;
 
 import finki.ukim.mk.dbexamapi.domain.dtos.exams.ExamDto;
-import finki.ukim.mk.dbexamapi.domain.models.Course;
-import finki.ukim.mk.dbexamapi.domain.models.Exam;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Course;
+import finki.ukim.mk.dbexamapi.domain.models.exams.Exam;
 import finki.ukim.mk.dbexamapi.web.v1.requests.exams.ExamRequest;
 import finki.ukim.mk.dbexamapi.web.v1.responses.exams.ExamResponse;
 
