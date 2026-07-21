@@ -7,8 +7,10 @@ import finki.ukim.mk.dbexamapi.domain.exceptions.exams.DatabaseTemplateRetiredEx
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskEnvironmentCombinationInvalidException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskEnvironmentDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskEnvironmentExamImmutableException;
+import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskEnvironmentInUseException;
 import finki.ukim.mk.dbexamapi.domain.models.exams.TaskEnvironment;
 import finki.ukim.mk.dbexamapi.repository.exams.TaskEnvironmentRepository;
+import finki.ukim.mk.dbexamapi.repository.exams.TaskRepository;
 import finki.ukim.mk.dbexamapi.service.exams.TaskEnvironmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,9 +25,12 @@ import java.util.Optional;
 public class TaskEnvironmentServiceImpl implements TaskEnvironmentService {
 
     private final TaskEnvironmentRepository taskEnvironmentRepository;
+    private final TaskRepository taskRepository;
 
-    public TaskEnvironmentServiceImpl(TaskEnvironmentRepository taskEnvironmentRepository) {
+    public TaskEnvironmentServiceImpl(TaskEnvironmentRepository taskEnvironmentRepository,
+                                      TaskRepository taskRepository) {
         this.taskEnvironmentRepository = taskEnvironmentRepository;
+        this.taskRepository = taskRepository;
     }
 
     @Override
@@ -80,6 +85,9 @@ public class TaskEnvironmentServiceImpl implements TaskEnvironmentService {
     @Transactional
     public TaskEnvironment retireById(String id) {
         TaskEnvironment taskEnvironment = findByIdNotNull(id);
+        if (taskRepository.existsByEnvironment_Id(id)) {
+            throw new TaskEnvironmentInUseException(id);
+        }
         taskEnvironment.setActive(false);
 
         TaskEnvironment saved = taskEnvironmentRepository.save(taskEnvironment);

@@ -6,4 +6,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, String> {
+
+    boolean existsByExam_IdAndPosition(String examId, int position);
+
+    boolean existsByExam_IdAndPositionAndIdNot(String examId, int position, String id);
+
+    boolean existsByEnvironment_Id(String environmentId);
 }
