@@ -58,13 +58,19 @@ _Avoid_: test case, assertion, grader rule
 A declarative database setup within one exam — shared or per-student, starting
 state, reset behavior. Tasks point at an environment; tasks sharing one work
 in the same database, which is how later tasks continue on earlier tasks'
-state.
+state. Retired, never deleted.
 _Avoid_: scenario, workspace, task config
 
 **Database Template**:
 A reusable, rebuildable starting state (schema + data) for databases, global
-across exams.
+across exams. Retired, never deleted.
 _Avoid_: mockup, dump, seed database
+
+**Retire**:
+Taking an environment or template out of service: it can no longer be
+referenced by anything new, but it survives forever as history for whatever
+already references it. The opposite of retiring is reactivating.
+_Avoid_: delete, deactivate (as concept names), archive
 
 **Managed Database**:
 One physical PostgreSQL database the system created, tracked for its whole

@@ -23,9 +23,15 @@ public class DatabaseTemplate extends BaseAuditableEntity {
     private String templateDbName;
 
     /**
-     * The SQL that builds the template (schema + data) — any template can be
-     * rebuilt from the API; the server is never the only copy.
+     * The SQL that builds the template (schema + data), always required — any
+     * template can be rebuilt from the API; the server is never the only copy.
      */
-    @Column(name = "source_script", columnDefinition = "TEXT")
+    @Column(name = "source_script", columnDefinition = "TEXT", nullable = false)
     private String sourceScript;
+
+    /**
+     * Templates retire instead of delete (ADR 0001): false = retired.
+     */
+    @Column(name = "active", nullable = false)
+    private boolean active;
 }
