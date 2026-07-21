@@ -1,4 +1,4 @@
-package finki.ukim.mk.dbexamapi.repository;
+package finki.ukim.mk.dbexamapi.repository.identity;
 
 import finki.ukim.mk.dbexamapi.domain.models.identity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

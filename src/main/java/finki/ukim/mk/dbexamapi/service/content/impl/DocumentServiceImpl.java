@@ -3,7 +3,7 @@ package finki.ukim.mk.dbexamapi.service.content.impl;
 import finki.ukim.mk.dbexamapi.domain.dtos.content.DocumentDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.content.DocumentDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.models.content.Document;
-import finki.ukim.mk.dbexamapi.repository.DocumentRepository;
+import finki.ukim.mk.dbexamapi.repository.content.DocumentRepository;
 import finki.ukim.mk.dbexamapi.service.content.DocumentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

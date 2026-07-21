@@ -4,7 +4,7 @@ import finki.ukim.mk.dbexamapi.domain.dtos.content.ExamFolderDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.content.ExamFolderAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.content.ExamFolderDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.models.content.ExamFolder;
-import finki.ukim.mk.dbexamapi.repository.ExamFolderRepository;
+import finki.ukim.mk.dbexamapi.repository.content.ExamFolderRepository;
 import finki.ukim.mk.dbexamapi.service.content.ExamFolderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

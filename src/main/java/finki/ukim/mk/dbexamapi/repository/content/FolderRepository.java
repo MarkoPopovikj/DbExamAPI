@@ -1,4 +1,4 @@
-package finki.ukim.mk.dbexamapi.repository;
+package finki.ukim.mk.dbexamapi.repository.content;
 
 import finki.ukim.mk.dbexamapi.domain.models.content.Folder;
 import org.springframework.data.jpa.repository.JpaRepository;

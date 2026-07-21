@@ -1,4 +1,4 @@
-package finki.ukim.mk.dbexamapi.repository;
+package finki.ukim.mk.dbexamapi.repository.exams;
 
 import finki.ukim.mk.dbexamapi.domain.models.exams.CheckResult;
 import org.springframework.data.jpa.repository.JpaRepository;
