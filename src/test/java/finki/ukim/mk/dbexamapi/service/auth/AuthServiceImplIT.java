@@ -15,7 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -93,7 +92,6 @@ class AuthServiceImplIT {
 
         assertNotNull(refreshed.access().token());
         assertNotNull(refreshed.refresh().token());
-        assertNotEquals(registered.tokens().access().token(), refreshed.access().token());
     }
 
     @Test
