@@ -9,6 +9,7 @@ import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskEnvironmentRetiredExc
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskPositionAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.TaskSubmissionModeInvalidException;
 import finki.ukim.mk.dbexamapi.domain.models.exams.Task;
+import finki.ukim.mk.dbexamapi.repository.content.TaskFolderRepository;
 import finki.ukim.mk.dbexamapi.repository.exams.TaskRepository;
 import finki.ukim.mk.dbexamapi.service.exams.TaskService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +25,11 @@ import java.util.Optional;
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
+    private final TaskFolderRepository taskFolderRepository;
 
-    public TaskServiceImpl(TaskRepository taskRepository) {
+    public TaskServiceImpl(TaskRepository taskRepository, TaskFolderRepository taskFolderRepository) {
         this.taskRepository = taskRepository;
+        this.taskFolderRepository = taskFolderRepository;
     }
 
     @Override
@@ -91,8 +94,9 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public Task deleteById(String id) {
         Task task = findByIdNotNull(id);
+        taskFolderRepository.deleteAllByTask_Id(id);
         taskRepository.delete(task);
-        log.info("Deleted task with id: {}", id);
+        log.info("Deleted task with id: {} and its folder attachments", id);
         return task;
     }
 
