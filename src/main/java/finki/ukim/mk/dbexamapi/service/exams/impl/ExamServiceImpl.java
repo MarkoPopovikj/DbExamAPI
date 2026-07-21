@@ -4,7 +4,7 @@ import finki.ukim.mk.dbexamapi.domain.dtos.exams.ExamDto;
 import finki.ukim.mk.dbexamapi.domain.enums.ExamStatus;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.ExamDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.models.exams.Exam;
-import finki.ukim.mk.dbexamapi.repository.ExamRepository;
+import finki.ukim.mk.dbexamapi.repository.exams.ExamRepository;
 import finki.ukim.mk.dbexamapi.service.exams.ExamService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

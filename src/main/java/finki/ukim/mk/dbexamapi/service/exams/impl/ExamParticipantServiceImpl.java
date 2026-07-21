@@ -4,7 +4,7 @@ import finki.ukim.mk.dbexamapi.domain.dtos.exams.ExamParticipantDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.ExamParticipantAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.ExamParticipantDoesNotExistException;
 import finki.ukim.mk.dbexamapi.domain.models.exams.ExamParticipant;
-import finki.ukim.mk.dbexamapi.repository.ExamParticipantRepository;
+import finki.ukim.mk.dbexamapi.repository.exams.ExamParticipantRepository;
 import finki.ukim.mk.dbexamapi.service.exams.ExamParticipantService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
