@@ -6,4 +6,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TaskFolderRepository extends JpaRepository<TaskFolder, String> {
+
+    boolean existsByTask_IdAndFolder_Id(String taskId, String folderId);
+
+    boolean existsByTask_IdAndFolder_IdAndIdNot(String taskId, String folderId, String id);
+
+    void deleteAllByTask_Id(String taskId);
 }
