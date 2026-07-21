@@ -4,9 +4,11 @@ import finki.ukim.mk.dbexamapi.domain.dtos.exams.DatabaseTemplateDto;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.DatabaseTemplateDbNameAlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.DatabaseTemplateDbNameInvalidException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.DatabaseTemplateDoesNotExistException;
+import finki.ukim.mk.dbexamapi.domain.exceptions.exams.DatabaseTemplateInUseException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.exams.DatabaseTemplateSourceScriptRequiredException;
 import finki.ukim.mk.dbexamapi.domain.models.exams.DatabaseTemplate;
 import finki.ukim.mk.dbexamapi.repository.exams.DatabaseTemplateRepository;
+import finki.ukim.mk.dbexamapi.repository.exams.TaskEnvironmentRepository;
 import finki.ukim.mk.dbexamapi.service.exams.DatabaseTemplateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -28,9 +30,12 @@ public class DatabaseTemplateServiceImpl implements DatabaseTemplateService {
     private static final Pattern SAFE_TEMPLATE_DB_NAME = Pattern.compile("^[a-z_][a-z0-9_]{0,62}$");
 
     private final DatabaseTemplateRepository databaseTemplateRepository;
+    private final TaskEnvironmentRepository taskEnvironmentRepository;
 
-    public DatabaseTemplateServiceImpl(DatabaseTemplateRepository databaseTemplateRepository) {
+    public DatabaseTemplateServiceImpl(DatabaseTemplateRepository databaseTemplateRepository,
+                                       TaskEnvironmentRepository taskEnvironmentRepository) {
         this.databaseTemplateRepository = databaseTemplateRepository;
+        this.taskEnvironmentRepository = taskEnvironmentRepository;
     }
 
     @Override
@@ -91,6 +96,9 @@ public class DatabaseTemplateServiceImpl implements DatabaseTemplateService {
     @Transactional
     public DatabaseTemplate retireById(String id) {
         DatabaseTemplate databaseTemplate = findByIdNotNull(id);
+        if (taskEnvironmentRepository.existsByTemplate_IdAndActiveTrue(id)) {
+            throw new DatabaseTemplateInUseException(id);
+        }
         databaseTemplate.setActive(false);
 
         DatabaseTemplate saved = databaseTemplateRepository.save(databaseTemplate);
