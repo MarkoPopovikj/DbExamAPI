@@ -4,6 +4,7 @@ import finki.ukim.mk.dbexamapi.domain.exceptions.AlreadyExistsException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.InUseException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.NotFoundException;
 import finki.ukim.mk.dbexamapi.domain.exceptions.RuleViolationException;
+import finki.ukim.mk.dbexamapi.domain.exceptions.UnauthorizedException;
 import finki.ukim.mk.dbexamapi.web.v1.responses.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InUseException.class)
     public ResponseEntity<ErrorResponse> handleInUse(InUseException exception, HttpServletRequest request) {
         return buildResponse(HttpStatus.CONFLICT, exception.getMessage(), request);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorized(UnauthorizedException exception, HttpServletRequest request) {
+        return buildResponse(HttpStatus.UNAUTHORIZED, exception.getMessage(), request);
     }
 
     @ExceptionHandler(RuleViolationException.class)

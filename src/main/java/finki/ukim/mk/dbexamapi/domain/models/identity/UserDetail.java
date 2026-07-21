@@ -29,4 +29,7 @@ public class UserDetail extends BaseEntity {
 
     @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "password", length = 72)
+    private String password;
 }
